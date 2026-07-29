@@ -52,6 +52,20 @@ cd backend
 bun run deploy
 ```
 
+Pushes to `main` deploy automatically to the Worker's `workers.dev` URL through
+`.github/workflows/deploy-workers.yml`.
+
+Configure these repository secrets under **Settings → Secrets and variables →
+Actions**:
+
+- `CLOUDFLARE_API_TOKEN`: a Cloudflare API token with `Workers Scripts: Edit`,
+  scoped to the deployment account
+- `CLOUDFLARE_ACCOUNT_ID`: the target Cloudflare account ID
+
+Create the token from the Cloudflare dashboard's **Manage Account → Account API
+Tokens** page. Find the account ID on the target account's Cloudflare dashboard
+overview page.
+
 ## Optional auth
 
 Set one of these as Worker secrets:
